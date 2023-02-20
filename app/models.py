@@ -34,4 +34,4 @@ class Post(db.Model):
 
 @login.user_loader
 def load_user(id):
-  return db.session.execute(db.select(User).filter_by(User.id == int(id))).scalar_one()
+  return User.query.filter_by(id=int(id)).first()
